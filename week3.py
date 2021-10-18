@@ -1,13 +1,12 @@
 import csv
+from sorting_algorithms import bubble_sort
 
 def get_maximum_value(list):
     '''
-    given a list of numbers this function will return the highest value
+    given a list of numbers this function will return the greatest value
     
-    Parameters
-    ---------
-    list: a list of numbers given as input
-    return: the highest value in the list
+        :param list: the list of numbers given as input
+        :return: the maximum value in the list 
     '''
     maximum = list[0] 
     for l in list:
@@ -16,6 +15,12 @@ def get_maximum_value(list):
     return maximum
 
 def get_minimum_value(list): 
+    '''
+    given a list of numbers this function will return the minimum value
+    
+        :param list: the list of numbers given as input
+        :return: the minimum value in the list 
+    '''
     minimum = list[0]
     for l in list:
         if l < minimum:
@@ -36,6 +41,12 @@ def get_average(list):
     return average
 
 def get_median_value(list):
+    '''
+    given a list of numbers this function will return the median value
+    
+        :param list: the list of numbers given as input
+        :return: the median value in the list 
+    '''
     list1 = list.copy() 
     bubble_sort(list1)
     median = list1[int(len(list1)/2)] 
@@ -50,6 +61,12 @@ def bubble_sort(list1):
                 list1[j+1] = temp
 
 def get_mode(list):
+    '''
+    given a list of numbers this function will return the mode value
+    
+        :param list: the list of numbers given as input
+        :return: the mode of the list 
+    '''
     highest_freq = 0 
     mode = scores[0]
     for score in scores:
