@@ -1,4 +1,6 @@
 import csv
+import math
+import statistics as st
 from sorting_algorithms import bubble_sort
 
 def get_maximum_value(list):
@@ -89,13 +91,23 @@ def read_scores_from_csv(filename):
     print(scores)
     return scores
 
+def read_student_number_from_csv(filename):
+    student_nos = []
+    with open(filename , mode ="r") as file: 
+        csvFile = csv.DictReader(file)
+        for lines in csvFile:
+            student_no = int(lines["Student Number"]) 
+            student_nos.append(student_no)
+    return student_nos
+
 if __name__ == "__main__":
     scores = read_scores_from_csv("example.csv")
+    student_nos = read_student_number_from_csv("example.csv")
+    average = st.mean(scores)
+    minimum = min(scores)
+    maximum = max(scores) 
+    median = st.median(scores)
+    mode = st.mode(scores)
     
-    average = get_average(scores) 
-    minimum = get_minimum_value(scores)
-    maximum = get_maximum_value(scores) 
-    median = get_median_value(scores)
-    mode = get_mode(scores)
-    
+    print(f"Student Numbers = {student_nos}")
     print(f"Average: {average} Median: {median} Smallest: {minimum} Largest: {maximum} mode: {mode}")
